@@ -7,7 +7,7 @@ export const Globe = ({
     const canvasRef = useRef(null);
   
     useEffect(() => {
-      let phi = 0;
+      let phi = 2.5;
   
       if (!canvasRef.current) return;
   
@@ -26,8 +26,8 @@ export const Globe = ({
         glowColor: [1, 1, 1],
         markers: [
           // longitude latitude
-          { location: [37.7595, -122.4367], size: 0.03 },
-          { location: [40.7128, -74.006], size: 0.1 },
+          { location: [15.7595, 74.2367], size: 0.03 },
+          { location: [23.7128, 77.006], size: 0.1 },
         ],
         onRender: (state) => {
           // Called on every animation frame.
