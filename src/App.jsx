@@ -1,11 +1,11 @@
 "use client"
 import './App.css'
 import About from './components/About'
+import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import SlideShow from './components/SlideShow'
-import Try from './components/Try'
 import { BackgroundBeams } from './components/ui/background-beams'
 
 function App() {
@@ -18,7 +18,8 @@ function App() {
           <Hero />
           <About />          
           <Projects />                
-          <SlideShow />         
+          <SlideShow />    
+          <Footer />     
         </div>        
         <BackgroundBeams className="fixed" />
       </main>

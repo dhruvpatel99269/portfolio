@@ -21,8 +21,8 @@ export const navLinks = [
     },
     {
       id: 5,
-      name: 'Certificates',
-      href: '#certificates'
+      name: 'Certificate',
+      href: '#certificate'
     }
   ];
 
