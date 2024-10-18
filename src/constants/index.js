@@ -11,14 +11,19 @@ export const navLinks = [
     },
     {
       id: 3,
-      name: 'Work',
-      href: '#work',
+      name: 'Projects',
+      href: '#projects',
     },
     {
       id: 4,
-      name: 'Contact',
-      href: '#contact',
+      name: 'Resume',
+      href: '#resume',
     },
+    {
+      id: 5,
+      name: 'Certificates',
+      href: '#certificates'
+    }
   ];
 
   export const calculateSizes = (isSmall, isMobile, isTablet) => {
@@ -64,13 +69,56 @@ export const navLinks = [
   
   export const myProjects = [
     {
-      title: 'Podcastr - AI Podcast Platform',
+      title: 'Event Management Web Application',
       animation: 'salute',
-      desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
+      desc: 'I developed a web-based event management platform, symbiSoc, inorder to manage college club activities and registrations. The platform features custom user authentication with Next-auth for secure login and role-based access. Additionally, real-time email notifications using Node mailer alert members about new event postings and reminders for upcoming registered events.',
       subdesc:
-        'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
-      href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
+        'Event-related documents in PDF format are made downloadable for Admin, Faculty In-charge, and Club In-charge users. The platform also includes an admin dashboard for managing user roles and overseeing the entire web application, providing administrators with comprehensive control over event management and user permissions.',
+      href: 'https://github.com/dhruvpatel99269/symbiSoc-next-auth',
       texture: '/textures/project/project1.mp4',
+      logo: '/assets/project-logo4.png',
+      logoStyle: {
+        backgroundColor: '#13202F',
+        border: '0.2px solid #17293E',
+        boxShadow: '0px 0px 60px 0px #2F6DB54D',
+      },
+      spotlight: '/assets/spotlight2.png',
+      tags: [
+        {
+          id: 1,
+          name: 'Next.js',
+          path: '/assets/next.svg',
+        },
+        {
+          id: 2,
+          name: 'TailwindCSS',
+          path: 'assets/tailwindcss.png',
+        },
+        {
+          id: 3,
+          name: 'TypeScript',
+          path: '/assets/typescript.png',
+        },
+        {
+          id: 4,
+          name: 'MongoDB',
+          path: '/assets/mongodb.svg',
+        },
+        {
+          id: 5,
+          name: 'NodeJs',
+          path: '/assets/node.svg',
+        },
+      ],
+    },
+    {
+      title: 'Music Streaming Platform',
+      animation: 'clapping',
+      desc: 'I developed a music streaming platform using Java (NetBeans IDE) and MySQL, focusing on user authentication and playlist management. The system handles validation for user not found, duplicate usernames, invalid passwords, and empty fields, ensuring a secure and smooth experience.',
+      subdesc:
+        'The platform uses circular linked lists for efficient playlist retrieval and song playback. This structure enables seamless transitions and continuous playback. Users can create, update, delete, and modify playlists by adding or removing songs, enhancing the overall user experience.',
+      href: 'https://github.com/dhruvpatel99269/MusicPlatform',
+      texture: '/textures/project/project2.mp4',
       logo: '/assets/project-logo1.png',
       logoStyle: {
         backgroundColor: '#2A1816',
@@ -81,102 +129,240 @@ export const navLinks = [
       tags: [
         {
           id: 1,
-          name: 'React.js',
-          path: '/assets/react.svg',
+          name: 'Java',
+          path: '/assets/java.svg',
         },
         {
           id: 2,
-          name: 'TailwindCSS',
-          path: 'assets/tailwindcss.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: '/assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: '/assets/framer.png',
-        },
-      ],
-    },
-    {
-      title: 'LiveDoc - Real-Time Google Docs Clone',
-      animation: 'clapping',
-      desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
-      subdesc:
-        'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-      href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
-      texture: '/textures/project/project2.mp4',
-      logo: '/assets/project-logo2.png',
-      logoStyle: {
-        backgroundColor: '#13202F',
-        border: '0.2px solid #17293E',
-        boxShadow: '0px 0px 60px 0px #2F6DB54D',
-      },
-      spotlight: '/assets/spotlight2.png',
-      tags: [
-        {
-          id: 1,
-          name: 'React.js',
-          path: '/assets/react.svg',
-        },
-        {
-          id: 2,
-          name: 'TailwindCSS',
-          path: 'assets/tailwindcss.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: '/assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: '/assets/framer.png',
-        },
-      ],
-    },
-    {
-      title: 'CarePulse - Health Management System',
-      animation: 'victory',
-      desc: 'An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.',
-      subdesc:
-        'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-      href: 'https://www.youtube.com/watch?v=lEflo_sc82g',
-      texture: '/textures/project/project3.mp4',
-      logo: '/assets/project-logo3.png',
-      logoStyle: {
-        backgroundColor: '#60f5a1',
-        background:
-          'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)',
-        border: '0.2px solid rgba(208, 213, 221, 1)',
-        boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
-      },
-      spotlight: '/assets/spotlight3.png',
-      tags: [
-        {
-          id: 1,
-          name: 'React.js',
-          path: '/assets/react.svg',
-        },
-        {
-          id: 2,
-          name: 'TailwindCSS',
-          path: 'assets/tailwindcss.png',
-        },
-        {
-          id: 3,
-          name: 'TypeScript',
-          path: '/assets/typescript.png',
-        },
-        {
-          id: 4,
-          name: 'Framer Motion',
-          path: '/assets/framer.png',
-        },
+          name: 'MySQL',
+          path: 'assets/mysql.svg',
+        },        
       ],
     },
   ];
+
+
+
+
+
+
+
+
+  export const navItems = [
+    { name: "About", link: "#about" },
+    { name: "Projects", link: "#projects" },
+    { name: "Testimonials", link: "#testimonials" },
+    { name: "Contact", link: "#contact" },
+  ];
+  
+  export const gridItems = [
+    {
+      id: 1,
+      title: "I prioritize client collaboration, fostering open communication ",
+      description: "",
+      className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
+      imgClassName: "w-full h-full",
+      titleClassName: "justify-end",
+      img: "/b1.svg",
+      spareImg: "",
+    },
+    {
+      id: 2,
+      title: "I'm very flexible with time zone communications",
+      description: "",
+      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+      imgClassName: "",
+      titleClassName: "justify-start",
+      img: "",
+      spareImg: "",
+    },
+    {
+      id: 3,
+      title: "My tech stack",
+      description: "I constantly try to improve",
+      className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+      imgClassName: "",
+      titleClassName: "justify-center",
+      img: "",
+      spareImg: "",
+    },
+    {
+      id: 4,
+      title: "Tech enthusiast with a passion for development.",
+      description: "",
+      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+      imgClassName: "",
+      titleClassName: "justify-start",
+      img: "/grid.svg",
+      spareImg: "/b4.svg",
+    },
+  
+    {
+      id: 5,
+      title: "Currently building a JS Animation library",
+      description: "The Inside Scoop",
+      className: "md:col-span-3 md:row-span-2",
+      imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
+      titleClassName: "justify-center md:justify-start lg:justify-center",
+      img: "/b5.svg",
+      spareImg: "/grid.svg",
+    },
+    {
+      id: 6,
+      title: "Do you want to start a project together?",
+      description: "",
+      className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+      imgClassName: "",
+      titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+      img: "",
+      spareImg: "",
+    },
+  ];
+  
+  export const projects = [
+    {
+      id: 1,
+      title: "3D Solar System Planets to Explore",
+      des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+      img: "/p1.svg",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+      link: "/ui.earth.com",
+    },
+    {
+      id: 2,
+      title: "Yoom - Video Conferencing App",
+      des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+      img: "/p2.svg",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+      link: "/ui.yoom.com",
+    },
+    {
+      id: 3,
+      title: "AI Image SaaS - Canva Application",
+      des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+      img: "/p3.svg",
+      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+      link: "/ui.aiimg.com",
+    },
+    {
+      id: 4,
+      title: "Animated Apple Iphone 3D Website",
+      des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+      img: "/p4.svg",
+      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+      link: "/ui.apple.com",
+    },
+  ];
+  
+  export const testimonials = [
+    {
+      quote:
+        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      name: "Michael Johnson",
+      title: "Director of AlphaStream Technologies",
+    },
+    {
+      quote:
+        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      name: "Michael Johnson",
+      title: "Director of AlphaStream Technologies",
+    },
+    {
+      quote:
+        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      name: "Michael Johnson",
+      title: "Director of AlphaStream Technologies",
+    },
+    {
+      quote:
+        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      name: "Michael Johnson",
+      title: "Director of AlphaStream Technologies",
+    },
+    {
+      quote:
+        "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      name: "Michael Johnson",
+      title: "Director of AlphaStream Technologies",
+    },
+  ];
+  
+  export const companies = [
+    {
+      id: 1,
+      name: "cloudinary",
+      img: "/cloud.svg",
+      nameImg: "/cloudName.svg",
+    },
+    {
+      id: 2,
+      name: "appwrite",
+      img: "/app.svg",
+      nameImg: "/appName.svg",
+    },
+    {
+      id: 3,
+      name: "HOSTINGER",
+      img: "/host.svg",
+      nameImg: "/hostName.svg",
+    },
+    {
+      id: 4,
+      name: "stream",
+      img: "/s.svg",
+      nameImg: "/streamName.svg",
+    },
+    {
+      id: 5,
+      name: "docker.",
+      img: "/dock.svg",
+      nameImg: "/dockerName.svg",
+    },
+  ];
+  
+  export const workExperience = [
+    {
+      id: 1,
+      title: "Frontend Engineer Intern",
+      desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+      className: "md:col-span-2",
+      thumbnail: "/exp1.svg",
+    },
+    {
+      id: 2,
+      title: "Mobile App Dev - JSM Tech",
+      desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+      className: "md:col-span-2", // change to md:col-span-2
+      thumbnail: "/exp2.svg",
+    },
+    {
+      id: 3,
+      title: "Freelance App Dev Project",
+      desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+      className: "md:col-span-2", // change to md:col-span-2
+      thumbnail: "/exp3.svg",
+    },
+    {
+      id: 4,
+      title: "Lead Frontend Developer",
+      desc: "Developed and maintained user-facing features using modern frontend technologies.",
+      className: "md:col-span-2",
+      thumbnail: "/exp4.svg",
+    },
+  ];
+  
+  export const socialMedia = [
+    {
+      id: 1,
+      img: "/git.svg",
+    },
+    {
+      id: 2,
+      img: "/twit.svg",
+    },
+    {
+      id: 3,
+      img: "/link.svg",
+    },
+  ];
+  

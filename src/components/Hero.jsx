@@ -17,7 +17,10 @@ const Hero = () => {
                 <div className="flex flex-col">
                     <div className="flex">
                         <h1 className={`${styles.heroHeadText} text-white`}>
-                            Hi, Im <span className='text-[#219ebc]'>Dhruv</span> <span className="waving-hand">👋</span>
+                            Hi, Im <span className='text-[#219ebc]'>Dhruv</span> <span className="waving-hand">👋
+
+
+                            </span>
                         </h1>
                     </div>
                     <div className="flex">

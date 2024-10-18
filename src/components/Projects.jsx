@@ -1,65 +1,112 @@
-import { Suspense, useState } from 'react';
+import gsap from 'gsap';
+import { useEffect, useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
-import Developer from '../components/canvas/Developer.jsx';
-import CanvasLoader from '../components/canvas/Loading.jsx';
-import { workExperiences } from '../constants/index.js';
+import Developer from './canvas/Developer.jsx';
+import CanvasLoader from './canvas/Loading.jsx';
+import { myProjects } from '../constants/index.js';
 
-const Projects = () => {
-  const [animationName, setAnimationName] = useState('idle');
+const projectCount = myProjects.length;
 
-  return (
-    <section className="c-space my-20" id="work">
-      <div className="w-full text-white-600">
-        <p className="head-text">My Projects</p>
+const Try = () => {
+    const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+    const currentProject = myProjects[selectedProjectIndex];
+    const [animationName, setAnimationName] = useState(currentProject.animation.toLowerCase());
 
-        <div className="work-container">
-          <div className="work-canvas">
-            <Canvas>
-              <ambientLight intensity={7} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+    const handleNavigation = (direction) => {
+        setSelectedProjectIndex((prevIndex) => {
+            if (direction === 'previous') {
+                return prevIndex === 0 ? projectCount - 1 : prevIndex - 1;
+            } else {
+                return prevIndex === projectCount - 1 ? 0 : prevIndex + 1;
+            }
+        });
+    };
 
-              <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-3} scale={3} animationName={animationName} />
-              </Suspense>
-            </Canvas>
-          </div>
+    useEffect(() => {
+        gsap.fromTo(
+            '.animatedText',
+            { opacity: 0 },
+            { opacity: 1, duration: 1, stagger: 0.2, ease: 'power2.inOut' }
+        );
+    }, [selectedProjectIndex, animationName]);
 
-          <div className="work-content">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-              {workExperiences.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOut={() => setAnimationName('idle')}
-                  className="work-content_container group">
-                  <div className="flex flex-col h-full justify-start items-center py-2">
-                    <div className="work-content_logo">
-                      <img className="w-full h-full" src={item.icon} alt="" />
-                    </div>
+    useEffect(() => {
+        setAnimationName(currentProject.animation.toLowerCase());
+    }, [selectedProjectIndex]);
 
-                    <div className="work-content_bar" />
-                  </div>
+    return (
+        <section className="c-space my-20">
+            <p className="head-text">My Projects</p>
 
-                  <div className="sm:p-5 px-2.5 py-5">
-                    <p className="font-bold text-white-800">{item.name}</p>
-                    <p className="text-sm mb-5">
-                      {item.pos} -- <span>{item.duration}</span>
-                    </p>
-                    <p className="group-hover:text-white transition-all ease-in-out duration-500">{item.title}</p>
-                  </div>
+            <div className="work-container">
+                <div className="work-canvas">
+                    <Canvas>
+                        <ambientLight intensity={7} />
+                        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+                        <directionalLight position={[10, 10, 10]} intensity={1} />
+                        <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+
+                        <Suspense fallback={<CanvasLoader />}>
+                            <Developer position-y={-2.1} scale={2.5} animationName={animationName} />
+                        </Suspense>
+                    </Canvas>
                 </div>
-              ))}
+
+                <div className="work-content">
+                    <div className="sm:py-10 sm:px-5 flex justify-center items-center">
+                        <div className="flex flex-col gap-5 relative sm:p-10 shadow-2xl shadow-black-200 h-min sm:py-10 py-5 sm:px-5 px-2.5">
+                            <div className="absolute top-0 right-0">
+                                <div className='text-white-700'>{currentProject.selectedProjectIndex}</div>
+                                <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-xl" />
+                            </div>
+
+                            <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
+                                <img className="w-10 h-10 shadow-sm" src={currentProject.logo} alt="logo" />
+                            </div>
+
+                            <div className="flex flex-col gap-5 text-white-600 my-5">
+                                <p className="text-white text-2xl font-semibold animatedText">{currentProject.title}</p>
+
+                                <p className="animatedText">{currentProject.desc}</p>
+                                <p className="animatedText">{currentProject.subdesc}</p>
+                            </div>
+
+                            <div className="flex items-center justify-between flex-wrap gap-5">
+                                <div className="flex items-center gap-3">
+                                    {currentProject.tags.map((tag, index) => (
+                                        <div key={index} className="tech-logo">
+                                            <img src={tag.path} alt={tag.name} />
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <a
+                                    className="flex items-center gap-2 cursor-pointer text-white-600"
+                                    href={currentProject.href}
+                                    target="_blank"
+                                    rel="noreferrer">
+                                    <p>Visit Github Repository</p>
+                                    <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
+                                </a>
+                            </div>
+
+                            <div className="flex justify-between items-center mt-7">
+                                <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
+                                    <img src="/assets/left-arrow.png" alt="left arrow" />
+                                </button>
+
+                                <button className="arrow-btn" onClick={() => handleNavigation('next')}>
+                                    <img src="/assets/right-arrow.png" alt="right arrow" className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
-export default Projects;
+export default Try;

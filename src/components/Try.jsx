@@ -1,107 +1,58 @@
-import gsap from 'gsap';
-import { useEffect, useState, Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-
-import Developer from '../components/canvas/Developer.jsx';
-import CanvasLoader from '../components/canvas/Loading.jsx';
-import { myProjects } from '../constants/index.js';
-
-const projectCount = myProjects.length;
+import Marquee from "react-fast-marquee";
 
 const Try = () => {
-    const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
-    const currentProject = myProjects[selectedProjectIndex];
-    const [animationName, setAnimationName] = useState(currentProject.animation.toLowerCase());
-
-    const handleNavigation = (direction) => {        
-        setSelectedProjectIndex((prevIndex) => {
-            if (direction === 'previous') {
-                return prevIndex === 0 ? projectCount - 1 : prevIndex - 1;
-            } else {
-                return prevIndex === projectCount - 1 ? 0 : prevIndex + 1;
-            }
-        });
-    };
-
-    useEffect(() => {
-        gsap.fromTo(
-            '.animatedText',
-            { opacity: 0 },
-            { opacity: 1, duration: 1, stagger: 0.2, ease: 'power2.inOut' }
-        );
-    }, [selectedProjectIndex, animationName]);
-
-    useEffect(() => {
-        setAnimationName(currentProject.animation.toLowerCase());
-    }, [selectedProjectIndex]);
 
     return (
         <section className="c-space my-20">
-            <p className="head-text">My Projects</p>
+            <div className='w-full h-[50vh] flex flex-col justify-center items-center shadow-2xl shadow-black-200' id='certificates'>
+                <div className='flex justify-center items-center flex-row mb-16'>
+                    <span className='waving-hand text-4xl'>🎉</span> <span className="head-text">Certifications</span> <span className='waving-hand text-4xl'>🎉</span>
+                </div>                
 
-            <div className="work-container">
-                <div className="work-canvas">
-                    <Canvas>
-                        <ambientLight intensity={7} />
-                        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                        <directionalLight position={[10, 10, 10]} intensity={1} />
-                        <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
-
-                        <Suspense fallback={<CanvasLoader />}>
-                            <Developer position-y={-3} scale={3} animationName={animationName}/>
-                        </Suspense>
-                    </Canvas>
-                </div>
-
-                <div className="work-content">
-                    <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
-                        <div className="absolute top-0 right-0">
-                            <div className='text-white-700'>{currentProject.selectedProjectIndex}</div>
-                            <img src={currentProject.spotlight} alt="spotlight" className="w-full h-96 object-cover rounded-xl" />
-                        </div>
-
-                        <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
-                            <img className="w-10 h-10 shadow-sm" src={currentProject.logo} alt="logo" />
-                        </div>
-
-                        <div className="flex flex-col gap-5 text-white-600 my-5">
-                            <p className="text-white text-2xl font-semibold animatedText">{currentProject.title}</p>
-
-                            <p className="animatedText">{currentProject.desc}</p>
-                            <p className="animatedText">{currentProject.subdesc}</p>
-                        </div>
-
-                        <div className="flex items-center justify-between flex-wrap gap-5">
-                            <div className="flex items-center gap-3">
-                                {currentProject.tags.map((tag, index) => (
-                                    <div key={index} className="tech-logo">
-                                        <img src={tag.path} alt={tag.name} />
-                                    </div>
-                                ))}
+                <Marquee pauseOnHover={true} gradientWidth={50} speed={200} className="flex justify-center items-center w-full h-full bg-black-200 rounded-lg border border-black-300">
+                    <div className="flex flex-col justify-center items-center w-full h-full">
+                        <div className='w-full h-1/2 flex justify-center items-center'>
+                            <div className='flex justify-center items-center w-full h-full'>
+                                <div className='flex mx-2 w-full h-full justify-center items-center'>
+                                    <img src='/assets/review1.png' alt="Review 1" className="w-full h-full" />
+                                </div>
+                                <div className='flex mx-2 w-full h-full justify-center items-center'>
+                                    <img src='/assets/review2.png' alt="Review 2" />
+                                </div>
+                                <div className='flex mx-2 w-full h-full justify-center items-center'>
+                                    <img src='/assets/review3.png' alt="Review 3" />
+                                </div>
+                                <div className='flex mx-2 w-full h-full justify-center items-center'>
+                                    <img src='/assets/review4.png' alt="Review 4" />
+                                </div>
                             </div>
-
-                            <a
-                                className="flex items-center gap-2 cursor-pointer text-white-600"
-                                href={currentProject.href}
-                                target="_blank"
-                                rel="noreferrer">
-                                <p>Check Live Site</p>
-                                <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
-                            </a>
                         </div>
 
-                        <div className="flex justify-between items-center mt-7">
-                            <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
-                                <img src="/assets/left-arrow.png" alt="left arrow" />
-                            </button>
+                        <div className='relative w-full h-1/2 transform scale-y-[-1] flex mt-4'>
+                            <div className='flex relative opacity-90 glassy'>
+                                <div className='flex mx-2'>
+                                    <img src='/assets/review1.png' alt="Review 1" className="w-full h-full object-cover" />
+                                    <div className='w-full absolute inset-0 bg-gradient-to-t from-transparent to-black-200 opacity-100' />
+                                </div>
 
-                            <button className="arrow-btn" onClick={() => handleNavigation('next')}>
-                                <img src="/assets/right-arrow.png" alt="right arrow" className="w-4 h-4" />
-                            </button>
+                                <div className='flex mx-2'>
+                                    <img src='/assets/review2.png' alt="Review 2" className="w-full h-full object-cover" />
+                                    <div className='w-full absolute inset-0 bg-gradient-to-t from-transparent to-black-200 opacity-100' />
+                                </div>
+
+                                <div className='flex mx-2'>
+                                    <img src='/assets/review3.png' alt="Review 3" className="w-full h-full object-cover" />
+                                    <div className='w-full absolute inset-0 bg-gradient-to-t from-transparent to-black-200 opacity-100' />
+                                </div>
+
+                                <div className='flex mx-2'>
+                                    <img src='/assets/review4.png' alt="Review 4" className="w-full h-full object-cover" />
+                                    <div className='w-full absolute inset-0 bg-gradient-to-t from-transparent to-black-200 opacity-100' />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Marquee>
             </div>
         </section>
     );

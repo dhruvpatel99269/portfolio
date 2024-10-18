@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Globe from 'react-globe.gl';
 import Button from './ui/Button';
 import SpotlightImage from './ui/Spotlight';
 import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
+import { Globe } from './canvas/Globe';
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -51,18 +51,7 @@ const About = () => {
         <div className="col-span-1 xl:row-span-4 group/translate">
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-              <Globe
-                height={326}
-                width={326}
-                backgroundColor="rgba(0, 0, 0, 0)"
-                backgroundImageOpacity={0.5}
-                showAtmosphere
-                showGraticules
-                pointAltitude={1}
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: 'white', size: 15 }]}
-              />
+              <Globe />
             </div>
             <div className='group-hover/translate:translate-x-2 transition duration-200'>
               <p className="grid-headtext">I’m very flexible with time zone communications & locations</p>
