@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes for props validation
+import { GlareCard } from "./glare-card";
 
 export const InfiniteMovingCards = ({
   items,
@@ -66,7 +67,7 @@ export const InfiniteMovingCards = ({
     <section className="c-space my-20">
       <div
         ref={containerRef}
-        className={`scroller relative z-20 w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] ${className}`}
+        className={`scroller relative h-1/2 z-20 w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] ${className}`}
       >
         <ul
           ref={scrollerRef}
@@ -76,35 +77,28 @@ export const InfiniteMovingCards = ({
           {items.map((item, idx) => (
             <li
               key={idx}
-              className="w-[70vw] max-w-full relative rounded-2xl border border-b-0 bg-black-200 flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw]"
-              style={{
-                background: "rgb(4,7,29)",
-                backgroundColor:
-                  "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-              }}
+              className="max-w-full relative rounded-2xl flex-shrink-0"
             >
-              <blockquote>
-                <div
-                  aria-hidden="true"
-                  className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
-                ></div>
-                <span className="relative z-20 text-sm md:text-lg leading-[1.6] text-white font-normal">
-                  {item.quote}
-                </span>
-                <div className="relative z-20 mt-6 flex flex-row items-center">
-                  <div className="me-3">
-                    <img src="/profile.svg" alt="profile" />
-                  </div>
-                  <span className="flex flex-col gap-1">
-                    <span className="text-xl font-bold leading-[1.6] text-white">
-                      {item.name}
-                    </span>
-                    <span className="text-sm leading-[1.6] text-white-200 font-normal">
-                      {item.title}
-                    </span>
-                  </span>
-                </div>
-              </blockquote>
+              <div className="flex justify-center items-center">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer p-2"
+                >
+                  <GlareCard className="flex justify-center items-center">
+                    <div className="flex flex-col justify-start items-center text-white">
+                      <div className="text-[#219ebc] text-2xl">
+                        {item.name}
+                      </div>
+
+                      <div className="text-xl">
+                        Certificate By: {item.issuedby}
+                      </div>
+                    </div>
+                  </GlareCard>
+                </a>
+              </div>
             </li>
           ))}
         </ul>
@@ -114,12 +108,16 @@ export const InfiniteMovingCards = ({
 };
 
 // Add prop types for validation
+
+// Updated prop types to make `quote` and `title` optional
 InfiniteMovingCards.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      quote: PropTypes.string.isRequired,
+      quote: PropTypes.string,
       name: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      link: PropTypes.string.isRequired,
+      issuedby: PropTypes.string, // Add issuedby as optional for testimonials
     })
   ).isRequired,
   direction: PropTypes.oneOf(["left", "right"]),

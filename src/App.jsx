@@ -16,10 +16,10 @@ function App() {
         <div className='relative z-10'>
           <Navbar />
           <Hero />
-          <About />          
-          <Projects />                
-          <SlideShow />    
-          <Footer />     
+          <About />       
+          <Projects />               
+          <SlideShow />            
+          <Footer />
         </div>        
         <BackgroundBeams className="fixed" />
       </main>
