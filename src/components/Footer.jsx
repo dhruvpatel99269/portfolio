@@ -19,7 +19,7 @@ const Footer = () => {
                     </a>
                 </div>
                 <div className="social-icon">
-                    <a href="" className="flex justify-center items-center">
+                    <a href="https://www.instagram.com/dhruv_99269/" className="flex justify-center items-center">
                         <img src="/assets/instagram.svg" alt="instagram" className="w-1/2 h-1/2" />
                     </a>
                 </div>
