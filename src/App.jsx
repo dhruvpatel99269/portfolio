@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
-import SlideShow from './components/SlideShow'
+import Certificates from './components/Certificates'
 import { BackgroundBeams } from './components/ui/background-beams'
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
         <div className='relative z-10'>
           <Navbar />
           <Hero />
-          <About />       
+          <About />                 
           <Projects />               
-          <SlideShow />            
+          <Certificates />             
           <Footer />
         </div>        
         <BackgroundBeams className="fixed" />

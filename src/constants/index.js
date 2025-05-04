@@ -16,14 +16,9 @@ export const navLinks = [
     },
     {
       id: 4,
-      name: 'Resume',
-      href: '#resume',
-    },
-    {
-      id: 5,
       name: 'Certificate',
       href: '#certificate'
-    }
+    },    
   ];
 
   export const calculateSizes = (isSmall, isMobile, isTablet) => {
@@ -263,6 +258,11 @@ export const navLinks = [
       name: "React (Basic)",
       link: "https://www.hackerrank.com/certificates/8630b1405e21",
     },
+    {
+      issuedby: "Hackerrank",
+      name: "Frontend Development(React)",
+      link: "https://www.hackerrank.com/certificates/ac23683f787a",
+    },
   ];
   
   export const companies = [
@@ -344,3 +344,77 @@ export const navLinks = [
     },
   ];
   
+  export const experiences = [
+    {
+      title: "React.js Developer",
+      company_name: "Starbucks",      
+      iconBg: "#383E56",
+      date: "March 2020 - April 2021",
+      points: [
+        "Developing and maintaining web applications using React.js and other related technologies.",
+        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
+    },
+    {
+      title: "React Native Developer",
+      company_name: "Tesla",      
+      iconBg: "#E6DEDD",
+      date: "Jan 2021 - Feb 2022",
+      points: [
+        "Developing and maintaining web applications using React.js and other related technologies.",
+        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
+    },
+    {
+      title: "Web Developer",
+      company_name: "Shopify",      
+      iconBg: "#383E56",
+      date: "Jan 2022 - Jan 2023",
+      points: [
+        "Developing and maintaining web applications using React.js and other related technologies.",
+        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
+    },
+    {
+      title: "Full stack Developer",
+      company_name: "Meta",      
+      iconBg: "#E6DEDD",
+      date: "Jan 2023 - Present",
+      points: [
+        "Developing and maintaining web applications using React.js and other related technologies.",
+        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
+    },
+  ];
+
+  export const education = [
+    {
+      title: "1",
+      education: "BTech in Computer Science and Engineering",
+      year: "2022 - 2026",      
+      institute: "Symbiosis Institute of Technology, Pune",
+      percentage: "CGPA: 8.02/10",
+    },
+    {
+      title: "2",
+      education: "Higher Secondary School",
+      year: "2020-2022",
+      institute: "Metas of Seventh-Day Adventist School, Surat",
+      percentage: "12th ISC Board Exam Marks: 9.04/10",
+    },
+    {
+      title: "3",
+      education: "Secondary School",
+      year: "2018-2020",
+      institute: "Metas of Seventh-Day Adventist School, Surat",
+      percentage: "10th ICSE Board Exam Marks: 8.71/10",
+    }
+  ];
