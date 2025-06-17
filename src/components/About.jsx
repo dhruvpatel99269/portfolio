@@ -67,7 +67,7 @@ const About = () => {
 
             <div className='group-hover/translate:translate-x-2 transition duration-200'>
               <p className="grid-headtext">My Passion for Coding</p>
-              <p className="grid-subtext">
+              <p className="grid-subtext text-xs">
                 I love solving problems and building things through code. Programming isn&apos;t just my
                 profession—it&apos;s my passion. I enjoy exploring new technologies, and enhancing my skills.
               </p>
@@ -87,7 +87,7 @@ const About = () => {
               <p className="grid-subtext text-center">Contact me</p>
               <div className="copy-container" onClick={handleCopy}>
                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-                <p className="lg:text-xl md:text-lg font-medium text-gray_gradient text-white">99269dhruvpatel@gmail.com</p>
+                <p className="text-xs lg:text-xl md:text-lg font-medium text-gray_gradient text-white">99269dhruvpatel@gmail.com</p>
               </div>
             </div>
           </div>
