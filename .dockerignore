@@ -1,0 +1,13 @@
+# Ignore dependencies
+node_modules/
+
+# Ignore build output
+dist/
+
+# Ignore development-specific files
+.env
+npm-debug.log
+README.md
+.gitignore
+.git
+.dockerignore 
